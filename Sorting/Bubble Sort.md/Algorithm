@@ -1,0 +1,21 @@
+# Bubble Sort
+
+It works by "repeatedly swapping the adjecent elements" if they are in the wrong order.
+Think of it like "Bubbles rising at the top" - in each pass, the largest element moves to the end of the list
+
+-------------------------------------------------------------------------------------------------------------
+Steps of the Algorithm
+
+1. Start from the first element.
+2. Compare the current element with the next element.
+3. If the current element is greater than the next, swap them.
+4. Continue this for every element until the end → now the largest element is at the last position.
+5. Repeat the process for the remaining elements (ignoring the last sorted ones).
+6. Stop when no swaps are needed (list is sorted).
+-------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
