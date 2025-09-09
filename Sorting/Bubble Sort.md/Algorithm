@@ -3,6 +3,7 @@
 It works by "repeatedly swapping the adjecent elements" if they are in the wrong order.
 Think of it like "Bubbles rising at the top" - in each pass, the largest element moves to the end of the list
 It is a in-placed sort Algorithm (no-extra space required)
+It is a Stable Sorting Algorithm
 -------------------------------------------------------------------------------------------------------------
 Algorithm:
 
