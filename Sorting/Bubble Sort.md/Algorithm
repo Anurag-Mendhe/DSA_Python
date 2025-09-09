@@ -2,9 +2,9 @@
 
 It works by "repeatedly swapping the adjecent elements" if they are in the wrong order.
 Think of it like "Bubbles rising at the top" - in each pass, the largest element moves to the end of the list
-
+It is a in-placed sort Algorithm (no-extra space required)
 -------------------------------------------------------------------------------------------------------------
-Steps of the Algorithm
+Algorithm:
 
 1. Start from the first element.
 2. Compare the current element with the next element.
@@ -14,8 +14,76 @@ Steps of the Algorithm
 6. Stop when no swaps are needed (list is sorted).
 -------------------------------------------------------------------------------------------------------------
 
+DRY RUN 
+-------------------------------------------------------------------------------------------------------------
+arr1 = [23,85,6,1,27,32]          # unsorted array
+n = len(arr)
 
+for i in range(n-1):
+    is_sorted = True
+  for j in range(n-i-1):
+    if (arr[j] > arr[j+1]):
+        is_sorted = False
+    # left is more than right, swap
+        arr[j], arr[j+1] = arr[j+1], arr[j]
+  is_sorted:
+      break
 
+Output : [1,6,23,27,32,85]       # sorted array
+-------------------------------------------------------------------------------------------------------------	
+n = 6			i = n - 1 = 5 		j = n - i - 1
+			             (0,5)  = 5 times iteration
+
+  i		    j					    arr                        condition				                  swap					
+-------------------------------------------------------------------------------------------------------------
+i = 0		  j = n - i - 1
+		          6 - 0 - 1  = (0,5) = 5 times iteration			
+
+i = 0		j = 0 		arr = [23,85,6,1,27,32]		check (arr[j] > arr[j+1])   false
+		    j = 1 		arr = [23,85,6,1,27,32]		check (arr[j] > arr[j+1])   true 	swap[23,6,85,1,27,32]
+		    j = 2		  arr = [23,6,85,1,27,32]		check (arr[j] > arr[j+1])   true 	swap[23,6,1,85,27,32]
+		    j = 3 		arr = [23,6,1,85,27,32]		check (arr[j] > arr[j+1])   true 	swap[23,6,1,27,85,32]
+		    j = 4		  arr = [23,6,1,27,85,32]		check (arr[j] > arr[j+1])   true 	swap[23,6,1,27,32,85]
+-------------------------------------------------------------------------------------------------------------
+
+i = 1		j = n - i - 1
+		        6 - 1 - 1 = (0,4) = 4 times iteration
+		    j = 0 		arr = [23,6,1,27,32,85]		check (arr[j] > arr[j+1])   true 	swap[6,23,1,27,32,85]
+		    j = 1		  arr = [6,23,1,27,32,85]		check (arr[j] > arr[j+1])   true 	swap[6,1,23,27,32,85]
+		    j = 2 		arr = [6,1,23,27,32,85]   check (arr[j] > arr[j+1])   false
+		    j = 3 		arr = [6,1,23,27,32,85]   check (arr[j] > arr[j+1])   false
+-------------------------------------------------------------------------------------------------------------
+
+i = 2     	j = n - i - 1
+		            6 - 2 - 1 = (0,3) = 3 times iteration
+		   j = 0 		 arr = [6,1,23,27,32,85]		check (arr[j] > arr[j+1])   true	swap[1,6,23,27,32,85]
+		   j = 1 		 arr = [1,6,23,27,32,85]		check (arr[j] > arr[j+1])   false
+		   j = 2 		 arr = [1,6,23,27,32,85]		check (arr[j] > arr[j+1])   false
+-------------------------------------------------------------------------------------------------------------
+
+i = 3		j = n - i - 1
+		        6 - 3 - 1 = (0,2) = 2 times iteration
+		  j = 0 		arr = [1,6,23,27,32,85]		 check (arr[j] > arr[j+1])   false 
+		  j = 1 		arr = [1,6,23,27,32,85]		 check (arr[j] > arr[j+1])   false 
+-------------------------------------------------------------------------------------------------------------
+	
+i = 4  		j = n - i - 1
+		          6 - 4 - 1 = (0,1) = 1 times
+		 j = 0 		  arr = [1,6,23,27,32,85]		 check (arr[j] > arr[j+1])   false 
+-------------------------------------------------------------------------------------------------------------	
+
+Time Complexity (T.C) & Space Complexity (S.C)
+-------------------------------------------------------------------------------------------------------------	
+T.C is "how the number of operations are proportional to the input size"
+Total number of Operations = 1 + 2 + 3 + .... + (n-2) + (n-1)
+                           = n(n-1)/2
+                           ~ n^2
+Worst Case T.C :  O(n^2)   reversed sorted array
+Best Case  T.C :  O(n)     already sorted array
+-------------------------------------------------------------------------------------------------------------	
+S.C is "Extra space that you take to solve a problem proportional to input size"
+S.C : O(n)
+-------------------------------------------------------------------------------------------------------------	
 
 
 
