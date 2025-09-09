@@ -56,9 +56,9 @@ i = 1		j = n - i - 1
 
 i = 2     	j = n - i - 1
 		        6 - 2 - 1 = (0,3) = 3 times iteration
-		   j = 0 		 arr = [6,1,23,27,32,85]		check (arr[j] > arr[j+1])   true	swap[1,6,23,27,32,85]
-		   j = 1 		 arr = [1,6,23,27,32,85]		check (arr[j] > arr[j+1])   false
-		   j = 2 		 arr = [1,6,23,27,32,85]		check (arr[j] > arr[j+1])   false
+		   j = 0 		 arr = [6,1,23,27,32,85]	check (arr[j] > arr[j+1])   true	swap[1,6,23,27,32,85]
+		   j = 1 		 arr = [1,6,23,27,32,85]	check (arr[j] > arr[j+1])   false
+		   j = 2 		 arr = [1,6,23,27,32,85]	check (arr[j] > arr[j+1])   false
 -------------------------------------------------------------------------------------------------------------
 
 i = 3		j = n - i - 1
