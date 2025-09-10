@@ -1,0 +1,59 @@
+# Selection Sort
+
+Selection sort is a simple sorting algorithm that works by "repeatedly finding the minimum element 
+from the unsorted part of the array and putting it at the beginning."
+It is in-place sort Algorithm (no-extra space required)
+
+-------------------------------------------------------------------------------------------------------
+Algorithm:
+
+1. Start with the first element (index 0).
+2. Find the smallest element in the unsorted part of the array.
+3. Swap it with the first element of the unsorted part.
+4. Move the boundary of the sorted/unsorted parts one step forward.
+5. Repeat until the entire array is sorted.
+-----------------------------------------------------------------------------------------------------------
+DRY RUN
+-----------------------------------------------------------------------------------------------------------
+
+def selection_sort(arr):
+ n = len(arr)
+
+ for i in range(n):
+   min_index = arr[i]
+
+   for j in range(i+1,n):
+      if (arr[j] < arr[min_index]
+      min_index = j
+
+    arr[i], arr[min_index] = arr[min_index], arr[i]
+  return arr
+
+arr = [23, 85, 6, 1, 27, 32]
+sorted = selection_sort(arr)
+print("Sorted array is : ", sorted)
+
+arr = [23, 85, 6, 1, 27, 32]
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Pass (i) | Initial min_index | Comparisons (j) checked                             | Updated min_index  | Swap at end of pass  | Array after pass         |
+| -------- | ------------------ | -------------------------------------------------- | ------------------ | -------------------- | ------------------------ |
+| i = 0    | 0 (23)             | Compare with 85, 6, **1**, 27, 32 → min = 1 at j=3 | 3                  | Swap arr\[0]↔arr\[3] | `[1, 85, 6, 23, 27, 32]` |
+| i = 1    | 1 (85)             | Compare with **6**, 23, 27, 32    → min = 6 at j=2 | 2                  | Swap arr\[1]↔arr\[2] | `[1, 6, 85, 23, 27, 32]` |
+| i = 2    | 2 (85)             | Compare with **23**, 27, 32      → min = 23 at j=3 | 3                  | Swap arr\[2]↔arr\[3] | `[1, 6, 23, 85, 27, 32]` |
+| i = 3    | 3 (85)             | Compare with **27**, 32          → min = 27 at j=4 | 4                  | Swap arr\[3]↔arr\[4] | `[1, 6, 23, 27, 85, 32]` |
+| i = 4    | 4 (85)             | Compare with **32**              → min = 32 at j=5 | 5                  | Swap arr\[4]↔arr\[5] | `[1, 6, 23, 27, 32, 85]` |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Time Complexity (T.C) and Space Complexity (S.C)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+T.C is how the number of operations are proportional to the input size.
+Total number of Operations : (n-1) + (n-2) + ........ + 4 + 3 + 2 + 1
+                           : n*(n-1)/2
+                           ~ n^2
+Worst Case T.C : O(n^2)
+Best Case  T.C : O(n^2)  <- Even if the array is already sorted, Selection Sort still scans all elements to find the minimum in each pass.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+S.C is "Extra space required to solve a problem proportional to input size"
+S.C : O(1)
