@@ -1,0 +1,60 @@
+# Insertion Sort
+-------------------------------------------------------------------------------------------------------
+
+Insertion sort builds the final sorted array one item at a time.
+It works the way you might sort playing cards in your hand:
+It is an in-place algorithm
+It is a stable Algorithm
+
+1.Take one card at a time,
+2.Compare it with the already sorted part,
+3.Insert it at the correct position.
+
+-------------------------------------------------------------------------------------------------------
+Algorithm:
+1. Start from the second element (index 1), because first element (index 0) is already “sorted.”
+2. Pick the element and call it the key.
+3. Compare the key with elements to its left.
+4. Shift all elements greater than the key one position to the right.
+5. Insert the key into its correct position.
+6. Repeat for all elements until the array is sorted.
+
+-------------------------------------------------------------------------------------------------------
+
+DRY RUN
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+def insertion_sort(arr):
+  n = len(arr)
+
+  for i in range(1,n):
+      key = arr[i]
+      j = i - 1
+
+      while j >= 0 and key < arr[j]:
+          arr[j+1] = arr[j]
+          j -= 1
+          
+      arr[j+1] = key
+  return arr
+
+arr = [23,85,6,1,27,32]
+---------------------------------------------------------------------------------------------------------------------------------------------------------------      
+| Pass (i) | Key (arr\[i]) | j checks (comparisons)                                                     | Shifts performed         | Array after pass         |
+| -------- | ------------- | ----------------------------------------------------------------------     | ----------------------   | -------------------------|
+| i = 1    | 85            | 85 < 23? ❌                                                                  None                      `[23, 85, 6, 1, 27, 32]`
+| i = 2    | 6             | 6 < 85? ✅ → shift 85  , 6 < 23? ✅ → shift 23                              85 → right, 23 → right    `[6, 23, 85, 1, 27, 32]` 
+| i = 3    | 1             | 1 < 85? ✅ → shift 85  , 1 < 23? ✅ → shift 23 <br> 1 < 6? ✅ → shift 6     85, 23, 6 → right         `[1, 6, 23, 85, 27, 32]` 
+| i = 4    | 27            | 27 < 85? ✅ → shift 85 , 27 < 23? ❌ stop                                   85 → right                `[1, 6, 23, 27, 85, 32]` 
+| i = 5    | 32            | 32 < 85? ✅ → shift 85 , 32 < 27? ❌ stop                                   85 → right                `[1, 6, 23, 27, 32, 85]` 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Time Complexity (T.C) and Space Complexity (S.C)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+T.C is how the number of operations are proportional to the input size 
+Total number of Operations : (n-1) + (n-2) + ....... + 4 + 3 + 2 + 1
+                           : n*(n-1)/2
+                           ~ n^2
+Worst Case : O(n^2)  
+Best Case  : O(n)    comparision of key with just one element
