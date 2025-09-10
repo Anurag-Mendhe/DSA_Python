@@ -3,7 +3,7 @@
 Selection sort is a simple sorting algorithm that works by "repeatedly finding the minimum element 
 from the unsorted part of the array and putting it at the beginning."
 It is in-place sort Algorithm (no-extra space required)
-
+It is un-stable algorithm
 -------------------------------------------------------------------------------------------------------
 Algorithm:
 
