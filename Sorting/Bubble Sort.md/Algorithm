@@ -83,7 +83,7 @@ Worst Case T.C :  O(n^2)   reversed sorted array
 Best Case  T.C :  O(n)     already sorted array
 -------------------------------------------------------------------------------------------------------------	
 S.C is "Extra space that you take to solve a problem proportional to input size"
-S.C : O(n)
+S.C : O(1)
 -------------------------------------------------------------------------------------------------------------	
 
 
