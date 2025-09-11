@@ -1,0 +1,23 @@
+What is Search ?
+Search is a process of finding a specific item or value within a collection of iterms or data
+It locates a particular element in a dataset for retrieval, update, or decision making
+-------------------------------------------------------------------------------------------------------------------------------------
+Types of Search
+
+1. Linear Search
+A straightforward approach where each element in the list is checked sequentially untill the target is found or the list ends
+Time Complexity : O(n)
+Example : Checking the book on a shelf by checking each book one by one.
+
+2. Binary Search
+An efficient method for finding an element in a sorted array by "repeatedly dividing the search space in half"
+Time Complexity : O(log n)
+Example : Looking for a word in a dictionary by opening it to the middle and determining which half to search next.
+-------------------------------------------------------------------------------------------------------------------------------------
+Binary Search Algorithm:
+1. Initialization : Start with two pointers (low and high)
+2. Midpoint Calculation : Find the middle element (mid)
+3. Comparison : Compare the middle element with the target
+4. Narrowing Down : Update / Adjust the search range based on the comparison
+-------------------------------------------------------------------------------------------------------------------------------------
+
